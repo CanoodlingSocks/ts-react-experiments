@@ -16,7 +16,6 @@ const Layout = () => (
         <>
         <div style={myStyle}>
         <Header />
-       
             <Outlet />
         </div>
  

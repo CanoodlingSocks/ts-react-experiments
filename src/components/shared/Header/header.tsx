@@ -14,7 +14,7 @@ const Header = () => {
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="login">Log In</Nav.Link>
-            <Nav.Link href="#navitem2">Nav Item 2</Nav.Link>
+            <Nav.Link href="react-bootstrap">React Bootstrap</Nav.Link>
             <Nav.Link href="#navitem3">Nav Item 3</Nav.Link>
           </Nav>
                 </Container>
