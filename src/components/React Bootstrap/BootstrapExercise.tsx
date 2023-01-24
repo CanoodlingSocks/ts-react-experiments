@@ -10,7 +10,7 @@ const BootstrapExercise = () => {
             </Row>
             <Row className="justify-content-center text-center">
                 <Col className="bg-box" md={4} lg={2} xl={2}>
-                <Button  style={{ width: "50%", margin: "5px"}} href="#">Boostrap Example 1</Button>
+                <Button  style={{ width: "50%", margin: "5px"}} href="accordion">Accordions</Button>
                 <Button style={{ width: "50%", margin: "5px"}} href="#">Boostrap Example 2</Button>
                 <Button style={{ width: "50%", margin: "5px"}} href="#">Boostrap Example 3</Button>
                 </Col>
