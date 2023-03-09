@@ -14,7 +14,7 @@ export const myStyle: CSSProperties = {
 };
 
 export const mainStyle: CSSProperties = {
-    height: `calc(100vh - 0px)`, // subtract height of Navbar
+    height: '100vh',
     overflow: 'hidden',
     display: 'flex',
     justifyContent: 'center',
