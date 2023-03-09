@@ -14,12 +14,14 @@ export const myStyle: CSSProperties = {
 };
 
 export const mainStyle: CSSProperties = {
-    height: 'calc(100vh - 60px)',
+    height: `calc(100vh - 0px)`, // subtract height of Navbar
     overflow: 'hidden',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-};
+    position: 'relative',
+    zIndex: 0,
+  };
 
 export const headerStyle: CSSProperties = {
     position: 'fixed',

@@ -3,18 +3,6 @@ html, body{
     height:100vh;
     width:100vw;
 }
-/* .color-overlay {
-    position: absolute;
-    background-color: rgba(0,0,0,0.2);
-    height: 93.2%;
-    width: 100%;
-    mix-blend-mode: normal;
-} */
-
-form {
-    background-color: white;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-}
 
 .center {
     height: 20%;
@@ -26,6 +14,19 @@ form {
     border-radius: 10px;
 }
 
+/*--------- Login Component ---------*/
+.color-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+form {
+    background-color: white;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+
 .evil-laugh {
     font-weight: bold;
 }
+/*-----------------------------------*/
+
