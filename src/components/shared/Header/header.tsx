@@ -15,7 +15,7 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="login">Log In</Nav.Link>
             <Nav.Link href="react-bootstrap">React Bootstrap</Nav.Link>
-            <Nav.Link href="#navitem3">Nav Item 3</Nav.Link>
+            <Nav.Link href="calendar">Calendar</Nav.Link>
           </Nav>
                 </Container>
             </Navbar>
