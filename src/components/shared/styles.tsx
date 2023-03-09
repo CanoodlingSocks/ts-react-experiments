@@ -21,13 +21,13 @@ export const mainStyle: CSSProperties = {
     alignItems: 'center',
     position: 'relative',
     zIndex: 0,
-  };
+};
 
 export const headerStyle: CSSProperties = {
     position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1, 
+    zIndex: 1,
 };
 //---------------------------------------------
