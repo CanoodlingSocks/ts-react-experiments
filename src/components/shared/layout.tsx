@@ -1,24 +1,19 @@
 import {Outlet} from "react-router-dom";
 import Header from "./Header/header"
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import bgImage from "./wallpaper.jpg";
-
-const myStyle={
-    backgroundImage: `url(${bgImage})`,
-    height:'100vh',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-}
+import { myStyle, mainStyle, headerStyle } from "./styles";
 
 const Layout = () => ( 
-        <>
+    <>
         <div style={myStyle}>
-        <Header />
-            <Outlet />
+            <div style={headerStyle}>
+                <Header />
+            </div>
+            <Container fluid style={mainStyle}>
+                <Outlet />
+            </Container>
         </div>
-        </> 
+    </> 
 )
 
 export default Layout;
