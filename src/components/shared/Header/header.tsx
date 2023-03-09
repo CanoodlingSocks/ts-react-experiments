@@ -12,11 +12,14 @@ const Header = () => {
             <ChubbyLogo/>{' '}
             Lelas CodeLab
           </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse className="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="login">Log In</Nav.Link>
             <Nav.Link href="react-bootstrap">React Bootstrap</Nav.Link>
             <Nav.Link href="calendar">Calendar</Nav.Link>
           </Nav>
+          </Navbar.Collapse>
                 </Container>
             </Navbar>
         </>
