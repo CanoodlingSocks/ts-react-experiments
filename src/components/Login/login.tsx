@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const Login = () => {
-  const [validated, setValidated] = useState<boolean>(false);
+  const [, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
 
@@ -55,6 +55,8 @@ const Login = () => {
           <Button variant="primary" type="submit">
             Submit
           </Button>
+          <span style={{ margin: '0 5px' }}>or</span>
+          <a href="#">Register here!</a>
         </Form>
       </div>
     </>
