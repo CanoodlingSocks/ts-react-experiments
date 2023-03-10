@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { PasswordInput } from '../shared/Form-components/password-input';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
 
 const Login = () => {
   const [validated, setValidated] = useState<boolean>(false);
@@ -40,19 +37,7 @@ const Login = () => {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <InputGroup>
-              <FormControl
-                type={showPassword ? "text" : "password"}
-                placeholder="Password"
-                aria-label="Password"
-              />
-              <Button variant="outline-secondary" onClick={toggleVisibility}>
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-              </Button>
-            </InputGroup>
-          </Form.Group>
+          <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility} />
 
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check
