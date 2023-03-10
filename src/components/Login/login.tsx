@@ -16,9 +16,8 @@ const Login = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const users: User[] = JSON.parse(localStorage.getItem('user') || '[]');
-    const user = users.find((u) => u.email === email && u.password === password);
-    if (user) {
+    const user: User | null = JSON.parse(localStorage.getItem('user') || 'null');
+    if (user && user.email === email && user.password === password) {
       // Log in the user
       console.log('Logged in!');
     } else {
