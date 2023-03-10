@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PasswordInput } from '../shared/Form-components/password-input';
-import Button from 'react-bootstrap/Button';
+import { SubmitButton } from '../shared/Buttons/buttons';
 import Form from 'react-bootstrap/Form';
 
 const Login = () => {
@@ -52,9 +52,7 @@ const Login = () => {
             )}
           </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <SubmitButton label="Submit" />
           <span style={{ margin: '0 5px' }}>or</span>
           <a href="/register">Register here!</a>
         </Form>

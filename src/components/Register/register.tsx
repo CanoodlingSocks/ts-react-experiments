@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form} from "react-bootstrap";
 import { PasswordInput } from "../shared/Form-components/password-input";
+import { SubmitButton, ResetButton, ButtonContainer } from "../shared/Buttons/buttons";
 
 const Register = () => {
   const [validated, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  
+  const toggleVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -13,10 +18,6 @@ const Register = () => {
       event.stopPropagation();
     }
     setValidated(true);
-  };
-
-  const toggleVisibility = () => {
-    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -38,14 +39,11 @@ const Register = () => {
               Please enter a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
-
           <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility} />
-    <div style={{  marginTop: "45px", marginRight: "20px" }}>
-          <Button variant="primary" type="submit" style={{ marginRight: "10px" }} >
-            Register
-          </Button>
-          <Button variant="secondary" type="reset">Reset</Button>
-    </div>
+    <ButtonContainer>
+      <SubmitButton label="Register"/>
+      <ResetButton />
+      </ButtonContainer>
         <div className="mt-3">
           Already have an account? <a href="/login">Log in here</a>
         </div>
