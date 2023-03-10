@@ -3,18 +3,35 @@ import { PasswordInput } from '../shared/Form-components/password-input';
 import { SubmitButton } from '../shared/Buttons/buttons';
 import Form from 'react-bootstrap/Form';
 
+interface User {
+  email: string;
+  password: string;
+}
+
 const Login = () => {
-  const [, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+    const users: User[] = JSON.parse(localStorage.getItem('user') || '[]');
+    const user = users.find((u) => u.email === email && u.password === password);
+    if (user) {
+      // Log in the user
+      console.log('Logged in!');
+    } else {
+      console.log('Invalid email or password');
     }
-    setValidated(true);
+  };
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
   };
 
   const toggleVisibility = () => {
@@ -28,18 +45,22 @@ const Login = () => {
   return (
     <>
       <div className="color-overlay d-flex justify-content-center align-items-center" style={{ position: 'absolute', zIndex: 2 }}>
-        <Form className="rounded p-4 p-sm-3">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form className="rounded p-4 p-sm-3" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control 
+            type="email" 
+            placeholder="Enter email" 
+            onChange={handleEmailChange}
+            />
             <Form.Text className="text-muted">
               We use your data *evil laugh*
             </Form.Text>
           </Form.Group>
 
-          <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility} />
+          <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility} handlePasswordChange={handlePasswordChange}/>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3">
             <Form.Check
               type="checkbox"
               label="Check here to sell me your firstborn"

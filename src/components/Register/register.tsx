@@ -6,6 +6,7 @@ import { SubmitButton, ResetButton, ButtonContainer } from "../shared/Buttons/bu
 const Register = () => {
   const [validated, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [, setPassword] = useState<string>('');
 
   const toggleVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -31,11 +32,16 @@ const Register = () => {
     alert('User data saved successfully');
   };
 
+  //onChange is not needed here but needed as props
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
   return (
     <>
       <div className="color-overlay d-flex justify-content-center align-items-center" style={{ position: 'absolute', zIndex: 2 }}>
       <Form className="rounded p-4 p-sm-3" noValidate validated={validated} onSubmit={handleSubmit} style={{ paddingBottom: "1rem" }}>
-            <Form.Group className="mb-3" controlId="">
+            <Form.Group className="mb-3">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control 
                 type="text" 
@@ -44,14 +50,17 @@ const Register = () => {
                 id="firstName"
                 />
             </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3">
             <Form.Label>Register Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required id="email"/>
+            <Form.Control 
+            type="email" 
+            placeholder="Enter email" 
+            required id="email"/>
             <Form.Control.Feedback type="invalid" style={{  marginTop: "5px" }}>
               Please enter a valid email address.
             </Form.Control.Feedback>
           </Form.Group>
-          <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility} />
+          <PasswordInput showPassword={showPassword} toggleVisibility={toggleVisibility}  handlePasswordChange={handlePasswordChange} />
     <ButtonContainer>
       <SubmitButton label="Register"/>
       <ResetButton />
