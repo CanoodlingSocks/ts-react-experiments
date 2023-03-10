@@ -21,6 +21,7 @@ export const PasswordInput = ({ showPassword, toggleVisibility }: PasswordInputP
           aria-label="Password"
           pattern="^(?=.*\d).{4,8}$"
           required
+          id="password"
         />
         <Button variant="outline-secondary" onClick={toggleVisibility}>
           <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />

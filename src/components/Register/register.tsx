@@ -7,17 +7,28 @@ const Register = () => {
   const [validated, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  
   const toggleVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
+      return;
     }
+    const firstName = (document.getElementById('firstName') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const password = (document.getElementById("password") as HTMLInputElement).value;
+    const userData = {
+      firstName,
+      email,
+      password,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
     setValidated(true);
+    alert('User data saved successfully');
   };
 
   return (
@@ -30,11 +41,12 @@ const Register = () => {
                 type="text" 
                 placeholder="Knut" 
                 required
+                id="firstName"
                 />
             </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Register Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" required />
+            <Form.Control type="email" placeholder="Enter email" required id="email"/>
             <Form.Control.Feedback type="invalid" style={{  marginTop: "5px" }}>
               Please enter a valid email address.
             </Form.Control.Feedback>
