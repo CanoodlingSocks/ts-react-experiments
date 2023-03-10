@@ -6,9 +6,7 @@ const App: React.FC = () => {
 
 
   return (
-    // <div style={myStyle}>
       <AppRouter />
-    //</div>
   )
 };
 

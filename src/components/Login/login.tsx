@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { PasswordInput } from '../shared/Form-components/password-input';
 import { SubmitButton } from '../shared/Buttons/buttons';
 import Form from 'react-bootstrap/Form';
@@ -9,6 +9,7 @@ interface User {
 }
 
 const Login = () => {
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
@@ -18,7 +19,7 @@ const Login = () => {
     event.preventDefault();
     const user: User | null = JSON.parse(localStorage.getItem('user') || 'null');
     if (user && user.email === email && user.password === password) {
-      // Log in the user
+      localStorage.setItem("isLoggedIn", "true");
       console.log('Logged in!');
     } else {
       console.log('Invalid email or password');
