@@ -12,17 +12,22 @@ interface PasswordInputProps {
 
 export const PasswordInput = ({ showPassword, toggleVisibility }: PasswordInputProps) => {
   return (
-    <Form.Group className="mb-3" controlId="formBasicPassword">
-      <Form.Label>Password</Form.Label>
+    <Form.Group className="mb-3" controlId="formBasicPassword" style={{ marginBottom: "1rem" }}>
+      <Form.Label>Register Password</Form.Label>
       <InputGroup>
         <FormControl
           type={showPassword ? "text" : "password"} 
           placeholder="Password"
           aria-label="Password"
+          pattern="^(?=.*\d).{4,8}$"
+          required
         />
         <Button variant="outline-secondary" onClick={toggleVisibility}>
           <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
         </Button>
+        <Form.Control.Feedback type="invalid" style={{ position: "absolute", marginTop: "40px" }}>
+          Must contain a number and be at least 4 and max 8 characters long
+        </Form.Control.Feedback>
       </InputGroup>
     </Form.Group>
   );
