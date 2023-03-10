@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { PasswordInput } from '../shared/Form-components/password-input';
 import { SubmitButton } from '../shared/Buttons/buttons';
 import Form from 'react-bootstrap/Form';
@@ -14,6 +15,7 @@ const Login = () => {
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,6 +23,7 @@ const Login = () => {
     if (user && user.email === email && user.password === password) {
       localStorage.setItem("isLoggedIn", "true");
       console.log('Logged in!');
+      navigate("/test");
     } else {
       console.log('Invalid email or password');
     }
