@@ -56,7 +56,7 @@ const Login = () => {
             Submit
           </Button>
           <span style={{ margin: '0 5px' }}>or</span>
-          <a href="#">Register here!</a>
+          <a href="/register">Register here!</a>
         </Form>
       </div>
     </>
