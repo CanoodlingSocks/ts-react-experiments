@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState} from 'react';
+import { useNavigate, Navigate} from "react-router-dom";
 import { PasswordInput } from '../shared/Form-components/password-input';
 import { SubmitButton } from '../shared/Buttons/buttons';
 import Form from 'react-bootstrap/Form';
@@ -17,13 +17,19 @@ const Login = () => {
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
 
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  if (isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const user: User | null = JSON.parse(localStorage.getItem('user') || 'null');
     if (user && user.email === email && user.password === password) {
       localStorage.setItem("isLoggedIn", "true");
       console.log('Logged in!');
-      navigate("/test");
+      navigate("/test", { replace: true }); 
     } else {
       console.log('Invalid email or password');
     }

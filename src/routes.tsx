@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ProtectedRoute } from "./protectedRoute";
 import Layout from "./components/shared/layout";
 import Login from "./components/Login/login";
 import Register from "./components/Register/register";
@@ -17,11 +16,11 @@ const AppRouter = () => {
           <Route path="/" element={<Layout />}>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/react-bootstrap-exercises" element={<BootstrapExercise />} />
+            <Route path="/test" element={<Test isLoggedIn={isLoggedIn} />} />
+            <Route path="/react-bootstrap" element={<BootstrapExercise />} />
             <Route path="/accordion" element={<Accordion />} />
             <Route path="/calendar" element={<CalendarContainer />} />
           </Route>
-            <Route path="/test" element={<Route><ProtectedRoute isLoggedIn={isLoggedIn} element={<Test />} path="/test" /></Route>} />
         </Routes>
       </BrowserRouter>
     );

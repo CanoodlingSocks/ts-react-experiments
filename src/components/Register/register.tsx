@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Form} from "react-bootstrap";
 import { PasswordInput } from "../shared/Form-components/password-input";
 import { SubmitButton, ResetButton, ButtonContainer } from "../shared/Buttons/buttons";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [validated, setValidated] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [, setPassword] = useState<string>('');
+  const navigate = useNavigate();
 
   const toggleVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -30,6 +32,7 @@ const Register = () => {
     localStorage.setItem("user", JSON.stringify(userData));
     setValidated(true);
     alert('User data saved successfully');
+    navigate("/login");
   };
 
   //onChange is not needed here but needed as props
