@@ -7,12 +7,12 @@ interface Props {
 }  
 
 const Test = ({ isLoggedIn }: Props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  if (!isLoggedIn) {
-    navigate("/login");
-    return null;
-  }
+  // if (!isLoggedIn) {
+  //   navigate("/login");
+  //   return null;
+  // }
 
   return (
     <Container>
